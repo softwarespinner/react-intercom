@@ -32,6 +32,8 @@ export default class Intercom extends Component {
       return;
     }
 
+    const didBoot = !!window.Intercom;
+
     if (!window.Intercom) {
       (function(w, d, id, s, x) {
         function i() {
@@ -52,7 +54,7 @@ export default class Intercom extends Component {
     window.intercomSettings = { ...otherProps, app_id: appID };
 
     if (window.Intercom) {
-      window.Intercom('boot', otherProps);
+      window.Intercom(didBoot ? 'update' : 'boot', otherProps);
     }
   }
 
