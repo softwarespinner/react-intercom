@@ -77,14 +77,6 @@ export default class Intercom extends Component {
     return false;
   }
 
-  componentWillUnmount() {
-    if (!canUseDOM || !window.Intercom) return false;
-
-    window.Intercom('shutdown');
-
-    delete window.Intercom;
-  }
-
   render() {
     return false;
   }
